@@ -39,5 +39,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+     <!-- 加载第三发包的 CDN 链接 
+  
+    这个代码写到head里有可能 也有可能写到body之上 取决于依赖dom完成生成
+    就是写到 <div id="root"></div> 后面
+  -->
+
+
+  <% htmlWebpackPlugin.options.cdn.js.forEach(cdnURL=> { %>
+    <script src="<%= cdnURL %>"></script>
+  <% }) %>
   </body>
 </html>
